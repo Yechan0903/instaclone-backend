@@ -23,7 +23,7 @@ const typeDefs = gql`
 const resolvers = {
     Query: {
         movies: () => [],
-        movie: () => ({title:"Hello", year:2023}),
+        movie: () => ({title:"Hell", year:2023}),
     },
     Mutation: {
         createMovie: (_, {title}) => {
