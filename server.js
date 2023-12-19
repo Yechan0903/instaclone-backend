@@ -1,7 +1,12 @@
 import { ApolloServer, gql } from "apollo-server";
+import {PrismaClient} from "@prisma/client";
+
+
+const client = new PrismaClient()
 
 const typeDefs = gql`
     type Movie {
+        id: Int
         title: String
         year: Int
     }
