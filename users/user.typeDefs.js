@@ -9,8 +9,7 @@ export default gql`
         email: String!
         createdAt: String!
         updatedAt: String!
-    }
-    type Query {
-        seeProfile(username: String): User
+        bio: String
+        avatar: String
     }
 `;
