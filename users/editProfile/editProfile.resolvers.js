@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import client from "../../client";
 import { protectedResolver } from "../users.utils";
+import { GraphQLUpload } from "apollo-server";
 
 const resolverFn = async (
     _,
@@ -38,6 +39,7 @@ const resolverFn = async (
 }
 
 export default {
+    Upload : GraphQLUpload,
     Mutation: {
         editProfile: protectedResolver (resolverFn),
     },
