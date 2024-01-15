@@ -7,7 +7,7 @@ import { getUser } from "./users/users.utils";
 
 const PORT = process.env.PORT;
 
-const server = new ApolloServer({
+const apollo = new ApolloServer({
   uploads : false,
   typeDefs,
   resolvers,
@@ -21,9 +21,10 @@ const server = new ApolloServer({
 const app = express();
 app.use(logger("tiny"));
 const sin = async () => {
-  await server.start();
-  server.applyMiddleware({app});
+  await apollo.start();
+  apollo.applyMiddleware({app});
 }
+app.use("/static",express.static("uploads"));
 sin();
 
 app.listen({port:PORT}, () => {
