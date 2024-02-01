@@ -6,6 +6,8 @@ export default {
         hashtags: ({id}) => client.hashtag.findMany({where: {photos: {some: {id,},},},}),
     },
     Hashtag: {
-        photos: ({id}) => client.photo.findMany({where: {hashtags: {some:{id,},},},},),
+        photos: ({id}, {page}) => client.hashtag.findUnique({where: {id,},}).photos({take: 5,
+            skip: (page - 1) * 5,},),
+        totalPhotos: ({id}) => client.photo.count({where: {hashtags: {some: {id,},},},}),
     },
 };
