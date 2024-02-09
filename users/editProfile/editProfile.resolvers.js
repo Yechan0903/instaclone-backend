@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import client from "../../client";
 import { protectedResolver } from "../users.utils";
 import { GraphQLUpload } from "apollo-server";
+import { uploadPhoto } from "../../shared/shared.utils";
 
 const resolverFn = async (
     _,
